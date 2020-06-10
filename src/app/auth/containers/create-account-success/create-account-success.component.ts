@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthSandboxService} from "../../store/auth-sandbox.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -8,17 +9,17 @@ import {Router} from "@angular/router";
 })
 export class CreateAccountSuccessComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private authSandboxService: AuthSandboxService,
+              private router: Router) { }
 
   ngOnInit(): void {
   }
 
   setupProfile() {
-
+    return this.router.navigate(["/auth/setupProfile"])
   }
 
   logout() {
-    console.log('logout')
-    return this.router.navigate(['/auth/logIn'])
+    this.authSandboxService.logout()
   }
 }

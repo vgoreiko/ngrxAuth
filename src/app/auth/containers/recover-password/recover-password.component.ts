@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {NgForm} from "@angular/forms";
+import {AuthSandboxService} from "../../store/auth-sandbox.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-recover-password',
@@ -8,10 +10,14 @@ import {NgForm} from "@angular/forms";
 })
 export class RecoverPasswordComponent {
   usernameOrEmail: ''
+  recoverPasswordSuccess$: Observable<boolean> = this.authSandboxService.recoverPasswordSuccess$
+  recoverPasswordError$: Observable<string> = this.authSandboxService.recoverPasswordError$
+  constructor(private authSandboxService: AuthSandboxService) {
+  }
 
   submit(f: NgForm) {
     if (f.valid) {
-      f.reset()
+      this.authSandboxService.recoverPassword(this.usernameOrEmail)
     }
   }
 }

@@ -1,18 +1,27 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
+import {StoreModule} from "@ngrx/store";
+import {EffectsModule} from "@ngrx/effects";
 
 import {AuthRoutingModule} from './auth-routing.module';
 import {
   LogInComponent,
   RecoverPasswordComponent,
   CreateAccountComponent,
-  CreateAccountSuccessComponent,
   AuthComponent,
-  RecoverPasswordSuccessComponent,
+  CreateAccountSuccessComponent,
+  SetupProfileComponent,
 } from './containers';
-import { SuccessMessageComponent } from './components';
-import {HttpClientModule} from "@angular/common/http";
+import {
+  RecoverPasswordSuccessComponent,
+  SuccessMessageComponent
+} from './components';
+import {AuthRepositoryService} from "./services";
+import * as fromReducers from "./store/reducers";
+import {CreateAccountEffects, GlobalEffects, LoginEffects, RecoverPasswordEffects} from "./store/effects";
+import {AuthSandboxService} from "./store/auth-sandbox.service";
 
 @NgModule({
   declarations: [
@@ -23,16 +32,20 @@ import {HttpClientModule} from "@angular/common/http";
     AuthComponent,
     SuccessMessageComponent,
     RecoverPasswordSuccessComponent,
+    SetupProfileComponent,
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forFeature('auth', fromReducers.reducers),
+    EffectsModule.forFeature([LoginEffects, RecoverPasswordEffects, GlobalEffects, CreateAccountEffects])
   ],
   providers: [
-
+    AuthRepositoryService,
+    AuthSandboxService
   ]
 })
 export class AuthModule {

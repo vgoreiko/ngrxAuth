@@ -1,8 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {AccountFormService, CreateAccountFormControlNames} from "../../services/account-form";
 import {FormGroup} from "@angular/forms";
-import {Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
+import {AuthSandboxService} from "../../store/auth-sandbox.service";
 
 @Component({
   selector: 'app-create-account',
@@ -15,8 +14,7 @@ export class CreateAccountComponent {
   controlNames = CreateAccountFormControlNames
 
   constructor(private accountFormService: AccountFormService,
-              private router: Router,
-              private http: HttpClient) {
+              private authSandboxService: AuthSandboxService) {
     this.createAccountForm = this.accountFormService.generateCreateAccountForm()
   }
 
@@ -24,8 +22,7 @@ export class CreateAccountComponent {
     if(this.createAccountForm.valid) {
       const userName = this.userNameControl.value
       const password = this.passwordControl.value
-      this.http.post("/api/user", {userName, password, email: `${userName}@gmail.com`}).subscribe()
-      return this.router.navigate(['/auth/createSuccess'])
+      this.authSandboxService.createAccount({userName, password})
     }
   }
 
@@ -49,8 +46,8 @@ export class CreateAccountComponent {
     return !this.passwordControl.valid
   }
 
-  get hasErrorsConfirmPasswordControl() {
-    return !this.confirmPasswordControl.valid
+  get hasPasswordsMatchError() {
+    return this.passwordsGroup.hasError('validSameValues')
   }
 
   get hasErrorsUserNameControl() {

@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Post} from '@nestjs/common';
+import {Body, Controller, Get, HttpException, HttpStatus, Post} from '@nestjs/common';
 import {UserDto} from "../dto/user";
 import {InMemoryDBEntityAsyncController, InMemoryDBService} from "@nestjs-addons/in-memory-db";
 import {users} from "../responses/users";
@@ -19,5 +19,19 @@ export class UserController extends InMemoryDBEntityAsyncController<UserDto> {
   @Post("user")
   createUser(@Body() user: UserDto) {
     return this.userService.create(user)
+  }
+
+  @Post("recover")
+  recoverPassword(@Body() param: {term: string}){
+    const {term} = param
+    const user = this.userService.getAll().find(user =>
+      user.userName === term ||
+      user.email === term
+    )
+    if (user) {
+      return {}
+    } else {
+      throw new HttpException('User with such email or userName not found', HttpStatus.NOT_FOUND)
+    }
   }
 }

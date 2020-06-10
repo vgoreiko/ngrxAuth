@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormGroup} from "@angular/forms";
 import {AccountFormService, LoginFormControlNames} from "../../services";
-import {HttpClient} from "@angular/common/http";
+import {AuthSandboxService} from "../../store/auth-sandbox.service";
 
 @Component({
   selector: 'app-log-in',
@@ -9,22 +9,31 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./log-in.component.scss'],
   viewProviders: [AccountFormService]
 })
-export class LogInComponent implements OnInit {
+export class LogInComponent {
   loginForm: FormGroup
   controlNames = LoginFormControlNames
+  loginError$ = this.authSandboxService.loginError$
 
   constructor(private logInFormService: AccountFormService,
-              private http: HttpClient) {
+              private authSandboxService: AuthSandboxService) {
     this.loginForm = this.logInFormService.generateLoginForm()
   }
 
-  ngOnInit() {
-    return this.http.get('api/users').subscribe()
+  login() {
+    const userName = this.userNameControl.value
+    const password = this.passwordControl.value
+    this.authSandboxService.login({userName, password})
   }
 
-  login() {
-    const userName = this.loginForm.get(LoginFormControlNames.UserName).value
-    const password = this.loginForm.get(LoginFormControlNames.Password).value
-    return this.http.post('api/login', {userName, password}).subscribe()
+  get userNameControl() {
+    return this.loginForm.get(LoginFormControlNames.UserName)
+  }
+
+  get passwordControl() {
+    return this.loginForm.get(LoginFormControlNames.Password)
+  }
+
+  get isSignInDisabled() {
+    return !(this.userNameControl.value && this.passwordControl.value)
   }
 }

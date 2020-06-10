@@ -1,9 +1,9 @@
 <h1 class="text-xl text-center">Create New Account</h1>
 <div class="text-l text-center sign-in-section">
   Already have an account?
-  <a class="link-text" [routerLink]="['../logIn']">Sign In</a>
+  <a class="link-text" [routerLink]="['../login']">Sign In</a>
 </div>
-<form name="login">
+<form name="create-account">
   <section [formGroup]="createAccountForm">
     <div class="col with-errors text-line">
       <div class="control-wrap">
@@ -40,8 +40,8 @@
                  placeholder="Confirm Password">
           <span class="valid-icon" *ngIf="confirmPasswordControl.valid">&#10003;</span>
         </div>
-        <ul class="errors text-m" *ngIf="hasErrorsConfirmPasswordControl && confirmPasswordControl.touched">
-          <li class="error" *ngIf="passwordsGroup.hasError('validSameValues')">Passwords should match</li>
+        <ul class="errors text-m" *ngIf="hasPasswordsMatchError && confirmPasswordControl.touched">
+          <li class="error" *ngIf="hasPasswordsMatchError">Passwords should match</li>
         </ul>
       </div>
     </section>

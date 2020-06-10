@@ -5,7 +5,7 @@ import {
   CreateAccountComponent,
   CreateAccountSuccessComponent,
   LogInComponent,
-  RecoverPasswordComponent
+  RecoverPasswordComponent, SetupProfileComponent
 } from "./containers";
 
 
@@ -22,12 +22,16 @@ const routes: Routes = [{
       component: CreateAccountSuccessComponent
     },
     {
-      path: 'logIn',
+      path: 'login',
       component: LogInComponent
     },
     {
       path: 'recoverPassword',
       component: RecoverPasswordComponent
+    },
+    {
+      path: 'setupProfile',
+      component: SetupProfileComponent
     },
     {
       path: '',
