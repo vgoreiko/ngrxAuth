@@ -1,0 +1,32 @@
+@import "variables";
+
+input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid $disabled-color;
+}
+
+input[type=checkbox] {
+  cursor: pointer;
+}
+
+@mixin invalidInputStyles {
+  border-color: $error-color;
+}
+
+input[type=text],
+input[type=password] {
+  &.ng-invalid.ng-touched{
+    @include invalidInputStyles;
+  }
+  font-size: $text-size-l;
+}
+
+.form-group-validity {
+  &.ng-invalid.ng-touched {
+    input[type=text],
+    input[type=password] {
+      @include invalidInputStyles;
+    }
+  }
+}

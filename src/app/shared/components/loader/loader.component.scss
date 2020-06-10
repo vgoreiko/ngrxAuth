@@ -1,0 +1,22 @@
+.preloader {
+  mat-spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    z-index: 1;
+  }
+
+  .spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 32000;
+  }
+
+  .spinner-svg {
+    background-image: url('../../../../assets/svg/spinner.svg');
+    background-size: contain;
+  }
+}

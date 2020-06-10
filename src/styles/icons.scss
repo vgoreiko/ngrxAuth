@@ -1,0 +1,9 @@
+@import "variables";
+
+.valid-icon{
+  display: inline-block;
+  border-radius: 50%;
+  background: $success-color;
+  color: $third-color;
+  padding: 0 3%;
+}

@@ -1,0 +1,18 @@
+<app-success-message [title]="'Account Created!'">
+  <div class="text-l text-center success-text-section mb-l">
+    You have taken the first step to something great! You can either keep on
+    going and set up your profile now, or log out and come back to it later
+  </div>
+  <p class="row space-between">
+    <button class="btn logout"
+            (click)="logout()"
+            type="button">
+      Logout
+    </button>
+    <button class="btn setup-profile btn-primary"
+            (click)="setupProfile()"
+            type="button">
+      Set Up Profile
+    </button>
+  </p>
+</app-success-message>

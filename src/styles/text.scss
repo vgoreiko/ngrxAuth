@@ -1,0 +1,60 @@
+@import "variables";
+
+.text-s {
+  font-size: $text-size-s;
+}
+
+.text-m {
+  font-size: $text-size-m;
+}
+
+.text-l {
+  font-size: $text-size-l;
+}
+
+.text-x {
+  font-size: $text-size-x;
+}
+
+.text-xl {
+  font-size: $text-size-xl;
+}
+
+.default-text {
+  color: $text-color;
+}
+
+.title-text {
+  color: $title-color;
+}
+
+.greyed-text {
+  color: $greyed-color;
+}
+
+.link-text {
+  color: $secondary-color;
+  text-decoration: none;
+
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+.success-text {
+  color: $success-color;
+}
+
+.error-text {
+  color: $error-color;
+}
+
+.disabled {
+  color: $disabled-color;
+}
+
+.text-center {
+  text-align: center;
+}
+
+

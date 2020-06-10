@@ -1,0 +1,61 @@
+@import "variables";
+
+@mixin btn-primary {
+  background: $secondary-color;
+  color: $third-color;
+}
+
+@mixin btn {
+  background: $background-main-color;
+  color: $secondary-color;
+}
+
+@mixin btn-disabled {
+  background: $disabled-color;
+  color: $third-color;
+}
+
+@mixin btn-hover {
+  transition-delay:0.1s;
+}
+
+.btn {
+  border-radius: $btn-border-radius;
+  text-transform: uppercase;
+  padding: $btn-padding;
+  border: 1px solid $secondary-color;
+  font-size: $btn-medium-font-size;
+  outline: none;
+  cursor: pointer;
+  transition: 0s background-color, 0s color;
+  @include btn;
+
+  &:hover{
+    @include btn-primary;
+    @include btn-hover;
+  }
+
+  &.btn-primary {
+    @include btn-primary;
+    &:hover {
+      @include btn;
+      @include btn-hover;
+    }
+  }
+
+  &.btn-disabled, button:disabled {
+    @include btn-disabled;
+    border-color: $disabled-color;
+    &:hover {
+      @include btn-disabled;
+      @include btn-hover;
+    }
+  }
+
+  &.btn-small {
+    font-size: $btn-small-font-size;
+  }
+  &.btn-big {
+    font-size: $btn-big-font-size;
+  }
+}

@@ -1,0 +1,61 @@
+<h1 class="text-xl text-center">Create New Account</h1>
+<div class="text-l text-center sign-in-section">
+  Already have an account?
+  <a class="link-text" [routerLink]="['../logIn']">Sign In</a>
+</div>
+<form name="login">
+  <section [formGroup]="createAccountForm">
+    <div class="col with-errors text-line">
+      <div class="control-wrap">
+        <input type="text"
+               [formControlName]="controlNames.UserName"
+               placeholder="User Name">
+        <span class="valid-icon" *ngIf="userNameControl.valid">&#10003;</span>
+      </div>
+      <ul class="errors text-m" *ngIf="hasErrorsUserNameControl && userNameControl.touched">
+        <li class="error" *ngIf="userNameControl.hasError('required')">User Name is required</li>
+        <li class="error" *ngIf="userNameControl.hasError('minlength')">3 Characters Long</li>
+      </ul>
+    </div>
+
+    <section [formGroupName]="controlNames.PasswordFormGroup" class="form-group-validity">
+      <div class="col with-errors text-line">
+        <div class="control-wrap">
+          <input type="password"
+                 [formControlName]="controlNames.Password"
+                 placeholder="Password">
+          <span class="valid-icon" *ngIf="passwordControl.valid">&#10003;</span>
+        </div>
+        <ul class="errors text-m" *ngIf="hasErrorsPasswordControl && passwordControl.touched">
+          <li class="error" *ngIf="passwordControl.hasError('required')">Password is required</li>
+          <li class="error" *ngIf="passwordControl.hasError('minlength')">8 Characters Long</li>
+          <li class="error" *ngIf="passwordControl.hasError('validateCapitalLetter')">Contain one Capital</li>
+          <li class="error" *ngIf="passwordControl.hasError('validateNumber')">Contain one Numeral</li>
+        </ul>
+      </div>
+      <div class="col with-errors text-line">
+        <div class="control-wrap">
+          <input type="password"
+                 [formControlName]="controlNames.ConfirmPassword"
+                 placeholder="Confirm Password">
+          <span class="valid-icon" *ngIf="confirmPasswordControl.valid">&#10003;</span>
+        </div>
+        <ul class="errors text-m" *ngIf="hasErrorsConfirmPasswordControl && confirmPasswordControl.touched">
+          <li class="error" *ngIf="passwordsGroup.hasError('validSameValues')">Passwords should match</li>
+        </ul>
+      </div>
+    </section>
+    <p class="col">
+      <button class="btn btn-primary"
+              (click)="submit()"
+              type="button">
+        Create Account
+      </button>
+    </p>
+  </section>
+  <div class="text-l text-center sign-in-section">
+    By signing up, you agree to our
+    <a class="link-text" [routerLink]="['/info/termsOfServices']">Terms of Services</a> and
+    <a class="link-text" [routerLink]="['/info/privacyPolicy']">Privacy Policy</a>.
+  </div>
+</form>
