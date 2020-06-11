@@ -22,6 +22,7 @@ import {AuthRepositoryService} from "./services";
 import * as fromReducers from "./store/reducers";
 import {CreateAccountEffects, GlobalEffects, LoginEffects, RecoverPasswordEffects} from "./store/effects";
 import {AuthSandboxService} from "./store/auth-sandbox.service";
+import {DictionaryModule} from "../dictionary/dictionary.module";
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {AuthSandboxService} from "./store/auth-sandbox.service";
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    DictionaryModule,
     StoreModule.forFeature('auth', fromReducers.reducers),
     EffectsModule.forFeature([LoginEffects, RecoverPasswordEffects, GlobalEffects, CreateAccountEffects])
   ],
