@@ -19,18 +19,16 @@
       "email": "admin@gmail.com"
     }
   ],
-  "auth": {
-    "login": {
-      "id": 3,
-      "userName": "Admin",
-      "password": "Admin",
-      "email": "admin@gmail.com"
-    },
-    "logout": {
-      "OK": "OK"
-    },
-    "recover": {
-      "OK": "OK"
-    }
+  "login": {
+    "id": 3,
+    "userName": "Admin",
+    "password": "Admin",
+    "email": "admin@gmail.com"
+  },
+  "logout": {
+    "OK": "OK"
+  },
+  "recover": {
+    "OK": "OK"
   }
 }

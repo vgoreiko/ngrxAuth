@@ -21,4 +21,7 @@ DEV
 1. ng deploy --base-href=https://vg1ne.github.io/ngrxAuth/ 
 https://www.npmjs.com/package/angular-cli-ghpages#configuration-file
 
-
+2. Users:
+- Admin/Admin
+- Donald Trump/Typicode?Nope1
+- Pele/123Test!
