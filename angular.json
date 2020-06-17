@@ -96,7 +96,9 @@
         },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
-          "options": {}
+          "options": {
+            "baseHref": "https://vg1ne.github.io/ngrxAuth/"
+          }
         }
       }
     }
