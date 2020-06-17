@@ -1,30 +1,31 @@
-import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
-import {LoginDto, UserBioDto, UserDto} from "../dto";
+import {Inject, Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {LoginDto, UserBioDto, UserDto} from '../dto';
+import {APP_CONFIG, AppConfig} from '../../app-config/app-config.module';
 
 @Injectable()
 export class AuthRepositoryService {
-  constructor(private http: HttpClient) {
-
+  constructor(private http: HttpClient,
+              @Inject(APP_CONFIG) private config: AppConfig) {
   }
 
   login(credential: LoginDto) {
-    return this.http.post<UserDto>("/api/login", credential)
+    return this.http.post<UserDto>(`${this.apiPredecessor}/auth/login`, credential);
   }
 
   logout() {
-    return this.http.post("/api/logout", {})
+    return this.http.post(`${this.apiPredecessor}/auth/logout`, {});
   }
 
   recoverPassword(userName: string) {
-    return this.http.post('/api/recover', {term: userName})
+    return this.http.post(`${this.apiPredecessor}/auth/recover`, {term: userName});
   }
 
   createAccount(credential: LoginDto) {
-    return this.http.post<UserDto>("/api/users", {userName: credential.userName, password: credential.password, email: `${credential.userName}@gmail.com`})
+    return this.http.post<UserDto>(`${this.apiPredecessor}/users`, {userName: credential.userName, password: credential.password, email: `${credential.userName}@gmail.com`});
   }
 
-  updateUserBioDetails(userBio: UserBioDto) {
-    return this.http.post("/api/userBio", {userBio})
+  get apiPredecessor() {
+    return `${this.config.apiEndpoint}`;
   }
 }

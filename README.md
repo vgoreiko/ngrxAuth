@@ -16,3 +16,9 @@ make the store as a source of truth for data.
 - Components having onPush ChangeDetection.
 
 6. Do not use any third party libraries.
+___________________
+DEV
+1. ng deploy --base-href=https://vg1ne.github.io/ngrxAuth/ 
+https://www.npmjs.com/package/angular-cli-ghpages#configuration-file
+
+

@@ -19,7 +19,9 @@
       "email": "admin@gmail.com"
     }
   ],
-  "login": "OK",
-  "logout": "OK",
-  "recover": "OK"
+  "auth": {
+    "login": "OK",
+    "logout": "OK",
+    "recover": "OK"
+  }
 }
