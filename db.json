@@ -20,8 +20,17 @@
     }
   ],
   "auth": {
-    "login": "OK",
-    "logout": "OK",
-    "recover": "OK"
+    "login": {
+      "id": 3,
+      "userName": "Admin",
+      "password": "Admin",
+      "email": "admin@gmail.com"
+    },
+    "logout": {
+      "OK": "OK"
+    },
+    "recover": {
+      "OK": "OK"
+    }
   }
 }
