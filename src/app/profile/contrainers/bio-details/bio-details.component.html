@@ -1,0 +1,49 @@
+<section [formGroup]="bioDetailsGroup">
+
+  <div class="col with-errors text-line">
+    <div class="control-wrap">
+      <input type="text"
+             [formControlName]="controlNames.FirstName"
+             placeholder="First Name">
+      <span class="valid-icon" *ngIf="firstNameControl.valid">&#10003;</span>
+    </div>
+    <ul class="errors text-m" *ngIf="firstNameControl.invalid && firstNameControl.touched">
+      <li class="error" *ngIf="firstNameControl.hasError('required')">First Name is required</li>
+      <li class="error" *ngIf="firstNameControl.hasError('minlength')">3 Characters Long</li>
+    </ul>
+  </div>
+
+  <div class="col with-errors text-line">
+    <div class="control-wrap">
+      <input type="text"
+             [formControlName]="controlNames.LastName"
+             placeholder="Last Name">
+      <span class="valid-icon" *ngIf="lastNameControl.valid">&#10003;</span>
+    </div>
+    <ul class="errors text-m" *ngIf="lastNameControl.invalid && lastNameControl.touched">
+      <li class="error" *ngIf="lastNameControl.hasError('required')">Last Name is required</li>
+      <li class="error" *ngIf="lastNameControl.hasError('minlength')">3 Characters Long</li>
+    </ul>
+  </div>
+
+  <div class="col with-errors text-line">
+    <div class="control-wrap">
+      <input type="text"
+             [formControlName]="controlNames.PhoneNumber"
+             placeholder="Phone Number">
+      <span class="valid-icon" *ngIf="phoneNumberControl.valid">&#10003;</span>
+    </div>
+    <ul class="errors text-m" *ngIf="phoneNumberControl.invalid && phoneNumberControl.touched">
+      <li class="error" *ngIf="phoneNumberControl.hasError('required')">Phone Number is required</li>
+      <li class="error" *ngIf="phoneNumberControl.hasError('minlength')">8 Characters Long</li>
+    </ul>
+  </div>
+
+  <div class="col with-errors text-line">
+    <div class="control-wrap">
+      <input type="text"
+             [formControlName]="controlNames.ScreenName"
+             placeholder="Screen Name (Optional)">
+    </div>
+  </div>
+</section>

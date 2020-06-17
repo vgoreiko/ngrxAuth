@@ -11,7 +11,7 @@ export class SetupProfileComponent implements OnInit {
   steps: StepDto[] = this.profileFacadeService.getSteps();
   activeStepId = 1;
   successStepIds: number[] = [];
-  isNextDisabled = false;
+  isNextDisabled = true;
 
   constructor(private profileFacadeService: ProfileFacadeService) {
   }

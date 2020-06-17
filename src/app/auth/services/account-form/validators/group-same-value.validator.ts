@@ -5,7 +5,7 @@ export function validateSameValue(fg: FormGroup) {
   let isTheSame = true;
 
   for (const controlsKey in fg.controls) {
-    if (this.formErrors.hasOwnProperty(controlsKey)) {
+    if (fg.controls.hasOwnProperty(controlsKey)) {
       controlValues.push(fg.get(controlsKey).value);
     }
   }

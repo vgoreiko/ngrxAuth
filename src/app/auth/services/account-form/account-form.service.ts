@@ -1,11 +1,8 @@
 import {Injectable} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {LoginFormControlNames} from './login-form-control-names';
+import {LoginFormControlNames, CreateAccountFormControlNames} from './enums';
 import {LoginFormParams} from './login-form-param.interface';
-import {validateNumber} from './has-number.validator';
-import {validateCapitalLetter} from './has-capital-letter.validator';
-import {CreateAccountFormControlNames} from './create-account-form-control-names';
-import {validateSameValue} from './group-same-value.validator';
+import {validateNumber, validateCapitalLetter, validateSameValue} from './validators';
 
 @Injectable()
 export class AccountFormService {
