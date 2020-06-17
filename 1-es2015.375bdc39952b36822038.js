@@ -303,7 +303,7 @@ let CreateAccountSuccessComponent = /*@__PURE__*/ (() => {
         ngOnInit() {
         }
         setupProfile() {
-            return this.router.navigate(["/setupProfile"]);
+            return this.router.navigate(['/setupProfile']);
         }
         logout() {
             this.authSandboxService.logout();
@@ -866,7 +866,7 @@ let RecoverPasswordComponent = /*@__PURE__*/ (() => {
                 _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](3, "async");
             }
             if (rf & 2) {
-                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](1, 2, ctx.recoverPasswordSuccess$));
+                _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](1, 2, ctx.recoverPasswordSuccess$) === false);
                 _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
                 _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind1"](3, 4, ctx.recoverPasswordSuccess$));
             }
@@ -889,14 +889,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccountFormService", function() { return AccountFormService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var _login_form_control_names__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login-form-control-names */ "./src/app/auth/services/account-form/login-form-control-names.ts");
-/* harmony import */ var _has_number_validator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./has-number.validator */ "./src/app/auth/services/account-form/has-number.validator.ts");
-/* harmony import */ var _has_capital_letter_validator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./has-capital-letter.validator */ "./src/app/auth/services/account-form/has-capital-letter.validator.ts");
-/* harmony import */ var _create_account_form_control_names__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./create-account-form-control-names */ "./src/app/auth/services/account-form/create-account-form-control-names.ts");
-/* harmony import */ var _group_same_value_validator__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./group-same-value.validator */ "./src/app/auth/services/account-form/group-same-value.validator.ts");
-
-
-
+/* harmony import */ var _enums__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./enums */ "./src/app/auth/services/account-form/enums/index.ts");
+/* harmony import */ var _validators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./validators */ "./src/app/auth/services/account-form/validators/index.ts");
 
 
 
@@ -909,22 +903,22 @@ let AccountFormService = /*@__PURE__*/ (() => {
             this.fb = fb;
         }
         generateLoginForm(params) {
-            const userNameValue = params && params[_login_form_control_names__WEBPACK_IMPORTED_MODULE_2__["LoginFormControlNames"].UserName] || '';
-            const passwordValue = params && params[_login_form_control_names__WEBPACK_IMPORTED_MODULE_2__["LoginFormControlNames"].Password] || '';
-            const rememberMeValue = params && params[_login_form_control_names__WEBPACK_IMPORTED_MODULE_2__["LoginFormControlNames"].RememberMe] || '';
+            const userNameValue = params && params[_enums__WEBPACK_IMPORTED_MODULE_2__["LoginFormControlNames"].UserName] || '';
+            const passwordValue = params && params[_enums__WEBPACK_IMPORTED_MODULE_2__["LoginFormControlNames"].Password] || '';
+            const rememberMeValue = params && params[_enums__WEBPACK_IMPORTED_MODULE_2__["LoginFormControlNames"].RememberMe] || '';
             return this.fb.group({
-                [_login_form_control_names__WEBPACK_IMPORTED_MODULE_2__["LoginFormControlNames"].UserName]: [userNameValue],
-                [_login_form_control_names__WEBPACK_IMPORTED_MODULE_2__["LoginFormControlNames"].Password]: [passwordValue],
-                [_login_form_control_names__WEBPACK_IMPORTED_MODULE_2__["LoginFormControlNames"].RememberMe]: [rememberMeValue]
+                [_enums__WEBPACK_IMPORTED_MODULE_2__["LoginFormControlNames"].UserName]: [userNameValue],
+                [_enums__WEBPACK_IMPORTED_MODULE_2__["LoginFormControlNames"].Password]: [passwordValue],
+                [_enums__WEBPACK_IMPORTED_MODULE_2__["LoginFormControlNames"].RememberMe]: [rememberMeValue]
             });
         }
         generateCreateAccountForm() {
             return this.fb.group({
-                [_create_account_form_control_names__WEBPACK_IMPORTED_MODULE_5__["CreateAccountFormControlNames"].UserName]: ['', this.getCreateAccountUserNameValidators()],
-                [_create_account_form_control_names__WEBPACK_IMPORTED_MODULE_5__["CreateAccountFormControlNames"].PasswordFormGroup]: this.fb.group({
-                    [_create_account_form_control_names__WEBPACK_IMPORTED_MODULE_5__["CreateAccountFormControlNames"].Password]: ['', this.getCreateAccountFormPasswordValidators()],
-                    [_create_account_form_control_names__WEBPACK_IMPORTED_MODULE_5__["CreateAccountFormControlNames"].ConfirmPassword]: ['', this.getCreateAccountFormPasswordValidators()]
-                }, { validators: _group_same_value_validator__WEBPACK_IMPORTED_MODULE_6__["validateSameValue"] }),
+                [_enums__WEBPACK_IMPORTED_MODULE_2__["CreateAccountFormControlNames"].UserName]: ['', this.getCreateAccountUserNameValidators()],
+                [_enums__WEBPACK_IMPORTED_MODULE_2__["CreateAccountFormControlNames"].PasswordFormGroup]: this.fb.group({
+                    [_enums__WEBPACK_IMPORTED_MODULE_2__["CreateAccountFormControlNames"].Password]: ['', this.getCreateAccountFormPasswordValidators()],
+                    [_enums__WEBPACK_IMPORTED_MODULE_2__["CreateAccountFormControlNames"].ConfirmPassword]: ['', this.getCreateAccountFormPasswordValidators()]
+                }, { validators: _validators__WEBPACK_IMPORTED_MODULE_3__["validateSameValue"] }),
             });
         }
         getCreateAccountUserNameValidators() {
@@ -938,8 +932,8 @@ let AccountFormService = /*@__PURE__*/ (() => {
             return _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].compose([
                 _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required,
                 _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].minLength(8),
-                _has_number_validator__WEBPACK_IMPORTED_MODULE_3__["validateNumber"],
-                _has_capital_letter_validator__WEBPACK_IMPORTED_MODULE_4__["validateCapitalLetter"]
+                _validators__WEBPACK_IMPORTED_MODULE_3__["validateNumber"],
+                _validators__WEBPACK_IMPORTED_MODULE_3__["validateCapitalLetter"]
             ]);
         }
     }
@@ -951,10 +945,10 @@ let AccountFormService = /*@__PURE__*/ (() => {
 
 /***/ }),
 
-/***/ "./src/app/auth/services/account-form/create-account-form-control-names.ts":
-/*!*********************************************************************************!*\
-  !*** ./src/app/auth/services/account-form/create-account-form-control-names.ts ***!
-  \*********************************************************************************/
+/***/ "./src/app/auth/services/account-form/enums/create-account-form-control-names.ts":
+/*!***************************************************************************************!*\
+  !*** ./src/app/auth/services/account-form/enums/create-account-form-control-names.ts ***!
+  \***************************************************************************************/
 /*! exports provided: CreateAccountFormControlNames */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -972,10 +966,88 @@ var CreateAccountFormControlNames = /*@__PURE__*/ (function (CreateAccountFormCo
 
 /***/ }),
 
-/***/ "./src/app/auth/services/account-form/group-same-value.validator.ts":
-/*!**************************************************************************!*\
-  !*** ./src/app/auth/services/account-form/group-same-value.validator.ts ***!
-  \**************************************************************************/
+/***/ "./src/app/auth/services/account-form/enums/index.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/auth/services/account-form/enums/index.ts ***!
+  \***********************************************************/
+/*! exports provided: CreateAccountFormControlNames, LoginFormControlNames */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _create_account_form_control_names__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./create-account-form-control-names */ "./src/app/auth/services/account-form/enums/create-account-form-control-names.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CreateAccountFormControlNames", function() { return _create_account_form_control_names__WEBPACK_IMPORTED_MODULE_0__["CreateAccountFormControlNames"]; });
+
+/* harmony import */ var _login_form_control_names__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login-form-control-names */ "./src/app/auth/services/account-form/enums/login-form-control-names.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoginFormControlNames", function() { return _login_form_control_names__WEBPACK_IMPORTED_MODULE_1__["LoginFormControlNames"]; });
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/auth/services/account-form/enums/login-form-control-names.ts":
+/*!******************************************************************************!*\
+  !*** ./src/app/auth/services/account-form/enums/login-form-control-names.ts ***!
+  \******************************************************************************/
+/*! exports provided: LoginFormControlNames */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginFormControlNames", function() { return LoginFormControlNames; });
+var LoginFormControlNames = /*@__PURE__*/ (function (LoginFormControlNames) {
+    LoginFormControlNames["UserName"] = "userName";
+    LoginFormControlNames["Password"] = "password";
+    LoginFormControlNames["RememberMe"] = "rememberMe";
+    return LoginFormControlNames;
+})({});
+
+
+/***/ }),
+
+/***/ "./src/app/auth/services/account-form/index.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/auth/services/account-form/index.ts ***!
+  \*****************************************************/
+/*! exports provided: LoginFormControlNames, CreateAccountFormControlNames, validateCapitalLetter, validateNumber, AccountFormService, validateSameValue */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _enums_login_form_control_names__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./enums/login-form-control-names */ "./src/app/auth/services/account-form/enums/login-form-control-names.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoginFormControlNames", function() { return _enums_login_form_control_names__WEBPACK_IMPORTED_MODULE_0__["LoginFormControlNames"]; });
+
+/* harmony import */ var _enums_create_account_form_control_names__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./enums/create-account-form-control-names */ "./src/app/auth/services/account-form/enums/create-account-form-control-names.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CreateAccountFormControlNames", function() { return _enums_create_account_form_control_names__WEBPACK_IMPORTED_MODULE_1__["CreateAccountFormControlNames"]; });
+
+/* harmony import */ var _validators_has_capital_letter_validator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./validators/has-capital-letter.validator */ "./src/app/auth/services/account-form/validators/has-capital-letter.validator.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "validateCapitalLetter", function() { return _validators_has_capital_letter_validator__WEBPACK_IMPORTED_MODULE_2__["validateCapitalLetter"]; });
+
+/* harmony import */ var _validators_has_number_validator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./validators/has-number.validator */ "./src/app/auth/services/account-form/validators/has-number.validator.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "validateNumber", function() { return _validators_has_number_validator__WEBPACK_IMPORTED_MODULE_3__["validateNumber"]; });
+
+/* harmony import */ var _account_form_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./account-form.service */ "./src/app/auth/services/account-form/account-form.service.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AccountFormService", function() { return _account_form_service__WEBPACK_IMPORTED_MODULE_4__["AccountFormService"]; });
+
+/* harmony import */ var _validators_group_same_value_validator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./validators/group-same-value.validator */ "./src/app/auth/services/account-form/validators/group-same-value.validator.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "validateSameValue", function() { return _validators_group_same_value_validator__WEBPACK_IMPORTED_MODULE_5__["validateSameValue"]; });
+
+
+
+
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/app/auth/services/account-form/validators/group-same-value.validator.ts":
+/*!*************************************************************************************!*\
+  !*** ./src/app/auth/services/account-form/validators/group-same-value.validator.ts ***!
+  \*************************************************************************************/
 /*! exports provided: validateSameValue */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -983,10 +1055,12 @@ var CreateAccountFormControlNames = /*@__PURE__*/ (function (CreateAccountFormCo
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "validateSameValue", function() { return validateSameValue; });
 function validateSameValue(fg) {
-    let controlValues = [];
+    const controlValues = [];
     let isTheSame = true;
-    for (let controlsKey in fg.controls) {
-        controlValues.push(fg.get(controlsKey).value);
+    for (const controlsKey in fg.controls) {
+        if (fg.controls.hasOwnProperty(controlsKey)) {
+            controlValues.push(fg.get(controlsKey).value);
+        }
     }
     if (controlValues) {
         isTheSame = controlValues.every(controlValue => {
@@ -1003,10 +1077,10 @@ function validateSameValue(fg) {
 
 /***/ }),
 
-/***/ "./src/app/auth/services/account-form/has-capital-letter.validator.ts":
-/*!****************************************************************************!*\
-  !*** ./src/app/auth/services/account-form/has-capital-letter.validator.ts ***!
-  \****************************************************************************/
+/***/ "./src/app/auth/services/account-form/validators/has-capital-letter.validator.ts":
+/*!***************************************************************************************!*\
+  !*** ./src/app/auth/services/account-form/validators/has-capital-letter.validator.ts ***!
+  \***************************************************************************************/
 /*! exports provided: validateCapitalLetter */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1025,10 +1099,10 @@ function validateCapitalLetter(c) {
 
 /***/ }),
 
-/***/ "./src/app/auth/services/account-form/has-number.validator.ts":
-/*!********************************************************************!*\
-  !*** ./src/app/auth/services/account-form/has-number.validator.ts ***!
-  \********************************************************************/
+/***/ "./src/app/auth/services/account-form/validators/has-number.validator.ts":
+/*!*******************************************************************************!*\
+  !*** ./src/app/auth/services/account-form/validators/has-number.validator.ts ***!
+  \*******************************************************************************/
 /*! exports provided: validateNumber */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1047,59 +1121,27 @@ function validateNumber(c) {
 
 /***/ }),
 
-/***/ "./src/app/auth/services/account-form/index.ts":
-/*!*****************************************************!*\
-  !*** ./src/app/auth/services/account-form/index.ts ***!
-  \*****************************************************/
-/*! exports provided: LoginFormControlNames, CreateAccountFormControlNames, validateCapitalLetter, validateNumber, AccountFormService, validateSameValue */
+/***/ "./src/app/auth/services/account-form/validators/index.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/auth/services/account-form/validators/index.ts ***!
+  \****************************************************************/
+/*! exports provided: validateSameValue, validateCapitalLetter, validateNumber */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _login_form_control_names__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./login-form-control-names */ "./src/app/auth/services/account-form/login-form-control-names.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LoginFormControlNames", function() { return _login_form_control_names__WEBPACK_IMPORTED_MODULE_0__["LoginFormControlNames"]; });
+/* harmony import */ var _group_same_value_validator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./group-same-value.validator */ "./src/app/auth/services/account-form/validators/group-same-value.validator.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "validateSameValue", function() { return _group_same_value_validator__WEBPACK_IMPORTED_MODULE_0__["validateSameValue"]; });
 
-/* harmony import */ var _create_account_form_control_names__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./create-account-form-control-names */ "./src/app/auth/services/account-form/create-account-form-control-names.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "CreateAccountFormControlNames", function() { return _create_account_form_control_names__WEBPACK_IMPORTED_MODULE_1__["CreateAccountFormControlNames"]; });
+/* harmony import */ var _has_capital_letter_validator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./has-capital-letter.validator */ "./src/app/auth/services/account-form/validators/has-capital-letter.validator.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "validateCapitalLetter", function() { return _has_capital_letter_validator__WEBPACK_IMPORTED_MODULE_1__["validateCapitalLetter"]; });
 
-/* harmony import */ var _has_capital_letter_validator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./has-capital-letter.validator */ "./src/app/auth/services/account-form/has-capital-letter.validator.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "validateCapitalLetter", function() { return _has_capital_letter_validator__WEBPACK_IMPORTED_MODULE_2__["validateCapitalLetter"]; });
-
-/* harmony import */ var _has_number_validator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./has-number.validator */ "./src/app/auth/services/account-form/has-number.validator.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "validateNumber", function() { return _has_number_validator__WEBPACK_IMPORTED_MODULE_3__["validateNumber"]; });
-
-/* harmony import */ var _account_form_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./account-form.service */ "./src/app/auth/services/account-form/account-form.service.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "AccountFormService", function() { return _account_form_service__WEBPACK_IMPORTED_MODULE_4__["AccountFormService"]; });
-
-/* harmony import */ var _group_same_value_validator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./group-same-value.validator */ "./src/app/auth/services/account-form/group-same-value.validator.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "validateSameValue", function() { return _group_same_value_validator__WEBPACK_IMPORTED_MODULE_5__["validateSameValue"]; });
+/* harmony import */ var _has_number_validator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./has-number.validator */ "./src/app/auth/services/account-form/validators/has-number.validator.ts");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "validateNumber", function() { return _has_number_validator__WEBPACK_IMPORTED_MODULE_2__["validateNumber"]; });
 
 
 
 
-
-
-
-
-
-/***/ }),
-
-/***/ "./src/app/auth/services/account-form/login-form-control-names.ts":
-/*!************************************************************************!*\
-  !*** ./src/app/auth/services/account-form/login-form-control-names.ts ***!
-  \************************************************************************/
-/*! exports provided: LoginFormControlNames */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginFormControlNames", function() { return LoginFormControlNames; });
-var LoginFormControlNames = /*@__PURE__*/ (function (LoginFormControlNames) {
-    LoginFormControlNames["UserName"] = "userName";
-    LoginFormControlNames["Password"] = "password";
-    LoginFormControlNames["RememberMe"] = "rememberMe";
-    return LoginFormControlNames;
-})({});
 
 
 /***/ }),
@@ -1115,32 +1157,36 @@ var LoginFormControlNames = /*@__PURE__*/ (function (LoginFormControlNames) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthRepositoryService", function() { return AuthRepositoryService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var _app_config_app_config_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../app-config/app-config.module */ "./src/app/app-config/app-config.module.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+
+
 
 
 
 let AuthRepositoryService = /*@__PURE__*/ (() => {
     class AuthRepositoryService {
-        constructor(http) {
+        constructor(http, config) {
             this.http = http;
+            this.config = config;
         }
         login(credential) {
-            return this.http.post("/api/login", credential);
+            return this.http.post(`${this.apiPredecessor}/login`, credential);
         }
         logout() {
-            return this.http.post("/api/logout", {});
+            return this.http.post(`${this.apiPredecessor}/logout`, {});
         }
         recoverPassword(userName) {
-            return this.http.post('/api/recover', { term: userName });
+            return this.http.post(`${this.apiPredecessor}/recover`, { term: userName });
         }
         createAccount(credential) {
-            return this.http.post("/api/users", { userName: credential.userName, password: credential.password, email: `${credential.userName}@gmail.com` });
+            return this.http.post(`${this.apiPredecessor}/users`, { userName: credential.userName, password: credential.password, email: `${credential.userName}@gmail.com` });
         }
-        updateUserBioDetails(userBio) {
-            return this.http.post("/api/userBio", { userBio });
+        get apiPredecessor() {
+            return `${this.config.apiEndpoint}`;
         }
     }
-    AuthRepositoryService.ɵfac = function AuthRepositoryService_Factory(t) { return new (t || AuthRepositoryService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
+    AuthRepositoryService.ɵfac = function AuthRepositoryService_Factory(t) { return new (t || AuthRepositoryService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_app_config_app_config_module__WEBPACK_IMPORTED_MODULE_1__["APP_CONFIG"])); };
     AuthRepositoryService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: AuthRepositoryService, factory: AuthRepositoryService.ɵfac });
     return AuthRepositoryService;
 })();
@@ -1357,12 +1403,11 @@ let AuthSandboxService = /*@__PURE__*/ (() => {
 /*!**********************************************!*\
   !*** ./src/app/auth/store/auth-state.dto.ts ***!
   \**********************************************/
-/*! exports provided: LoadingStateBase, loginInitialState, recoverPasswordInitialState, createAccountInitialState, initialState, selectAuthFeature */
+/*! exports provided: loginInitialState, recoverPasswordInitialState, createAccountInitialState, initialState, selectAuthFeature */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadingStateBase", function() { return LoadingStateBase; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loginInitialState", function() { return loginInitialState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recoverPasswordInitialState", function() { return recoverPasswordInitialState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createAccountInitialState", function() { return createAccountInitialState; });
@@ -1372,8 +1417,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ngrx_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @ngrx/store */ "./node_modules/@ngrx/store/__ivy_ngcc__/fesm2015/store.js");
 
 
-class LoadingStateBase {
-}
 const loginInitialState = {
     user: _dto__WEBPACK_IMPORTED_MODULE_0__["UserDto"].empty(),
     loading: _dto__WEBPACK_IMPORTED_MODULE_0__["LoadingState"].NotStarted,
@@ -1435,7 +1478,7 @@ let CreateAccountEffects = /*@__PURE__*/ (() => {
             }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(user => (_actions__WEBPACK_IMPORTED_MODULE_2__["createAccountSuccess"]({ user }))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])((e) => {
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(_actions__WEBPACK_IMPORTED_MODULE_2__["createAccountError"]({ error: e.error.message }));
             })))));
-            this.createAccountSuccess$ = Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["createEffect"])(() => this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_2__["createAccountSuccess"]), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(_ => this.router.navigate(["/auth/createSuccess"]))), { dispatch: false });
+            this.createAccountSuccess$ = Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["createEffect"])(() => this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_2__["createAccountSuccess"]), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(_ => this.router.navigate(['/auth/createSuccess']))), { dispatch: false });
         }
     }
     CreateAccountEffects.ɵfac = function CreateAccountEffects_Factory(t) { return new (t || CreateAccountEffects)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_services__WEBPACK_IMPORTED_MODULE_5__["AuthRepositoryService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"])); };
@@ -1478,7 +1521,7 @@ let GlobalEffects = /*@__PURE__*/ (() => {
             this.actions$ = actions$;
             this.authRepositoryService = authRepositoryService;
             this.router = router;
-            this.reset$ = Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["createEffect"])(() => this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_4__["reset"]), Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["pipe"])(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["switchMap"])(_ => this.router.navigate(["/auth/login"])))), { dispatch: false });
+            this.reset$ = Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["createEffect"])(() => this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_4__["reset"]), Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["pipe"])(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["switchMap"])(_ => this.router.navigate(['/auth/login'])))), { dispatch: false });
         }
     }
     GlobalEffects.ɵfac = function GlobalEffects_Factory(t) { return new (t || GlobalEffects)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_ngrx_effects__WEBPACK_IMPORTED_MODULE_3__["Actions"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_services__WEBPACK_IMPORTED_MODULE_5__["AuthRepositoryService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"])); };
@@ -1556,7 +1599,10 @@ let LoginEffects = /*@__PURE__*/ (() => {
             }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(user => (_actions__WEBPACK_IMPORTED_MODULE_2__["loginSuccess"]({ user }))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])((e) => {
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])(_actions__WEBPACK_IMPORTED_MODULE_2__["loginError"]({ error: e.error.message }));
             })))));
-            this.logout$ = Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["createEffect"])(() => this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_2__["logout"]), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(_ => this.authRepositoryService.logout().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(_ => this.router.navigate(["/auth/login"])), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(e => this.router.navigate(["/auth/login"]))))), { dispatch: false });
+            this.loginSuccess$ = Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["createEffect"])(() => this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_2__["loginSuccess"]), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(action => this.router.navigate(['/setupProfile']))), {
+                dispatch: false
+            });
+            this.logout$ = Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["createEffect"])(() => this.actions$.pipe(Object(_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["ofType"])(_actions__WEBPACK_IMPORTED_MODULE_2__["logout"]), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(_ => this.authRepositoryService.logout().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(resp => this.router.navigate(['/auth/login'])), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(e => this.router.navigate(['/auth/login']))))), { dispatch: false });
         }
     }
     LoginEffects.ɵfac = function LoginEffects_Factory(t) { return new (t || LoginEffects)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_ngrx_effects__WEBPACK_IMPORTED_MODULE_1__["Actions"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_services__WEBPACK_IMPORTED_MODULE_5__["AuthRepositoryService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"])); };

@@ -122154,6 +122154,89 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./src/app/app-config/app-config.module.ts":
+  /*!*************************************************!*\
+    !*** ./src/app/app-config/app-config.module.ts ***!
+    \*************************************************/
+
+  /*! exports provided: APP_CONFIG, AppConfig, APP_DI_CONFIG, AppConfigModule */
+
+  /***/
+  function srcAppAppConfigAppConfigModuleTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "APP_CONFIG", function () {
+      return APP_CONFIG;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "AppConfig", function () {
+      return AppConfig;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "APP_DI_CONFIG", function () {
+      return APP_DI_CONFIG;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "AppConfigModule", function () {
+      return AppConfigModule;
+    });
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _environments_environment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ../../environments/environment */
+    "./src/environments/environment.ts");
+
+    var APP_CONFIG = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["InjectionToken"]('app.config');
+
+    var AppConfig = function AppConfig() {
+      _classCallCheck(this, AppConfig);
+    };
+
+    var APP_DI_CONFIG = {
+      apiEndpoint: _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].apiEndpoint
+    };
+
+    var AppConfigModule = /*@__PURE__*/function () {
+      var AppConfigModule = function AppConfigModule() {
+        _classCallCheck(this, AppConfigModule);
+      };
+
+      AppConfigModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({
+        type: AppConfigModule
+      });
+      AppConfigModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({
+        factory: function AppConfigModule_Factory(t) {
+          return new (t || AppConfigModule)();
+        },
+        providers: [{
+          provide: APP_CONFIG,
+          useValue: APP_DI_CONFIG
+        }]
+      });
+      return AppConfigModule;
+    }();
+    /***/
+
+  },
+
+  /***/
   "./src/app/app-routing.module.ts":
   /*!***************************************!*\
     !*** ./src/app/app-routing.module.ts ***!
@@ -122398,6 +122481,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _ngrx_router_store__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! @ngrx/router-store */
     "./node_modules/@ngrx/router-store/__ivy_ngcc__/fesm2015/router-store.js");
+    /* harmony import */
+
+
+    var _app_config_app_config_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! ./app-config/app-config.module */
+    "./src/app/app-config/app-config.module.ts");
 
     var AppModule = /*@__PURE__*/function () {
       var AppModule = function AppModule() {
@@ -122413,7 +122502,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return new (t || AppModule)();
         },
         providers: [],
-        imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _ngrx_store__WEBPACK_IMPORTED_MODULE_4__["StoreModule"].forRoot({}, {}), _ngrx_store_devtools__WEBPACK_IMPORTED_MODULE_5__["StoreDevtoolsModule"].instrument({
+        imports: [[_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _app_config_app_config_module__WEBPACK_IMPORTED_MODULE_11__["AppConfigModule"], _ngrx_store__WEBPACK_IMPORTED_MODULE_4__["StoreModule"].forRoot({}, {}), _ngrx_store_devtools__WEBPACK_IMPORTED_MODULE_5__["StoreDevtoolsModule"].instrument({
           maxAge: 25,
           logOnly: _environments_environment__WEBPACK_IMPORTED_MODULE_6__["environment"].production
         }), _ngrx_effects__WEBPACK_IMPORTED_MODULE_7__["EffectsModule"].forRoot([]), _shared_shared_module__WEBPACK_IMPORTED_MODULE_8__["SharedModule"], _ngrx_router_store__WEBPACK_IMPORTED_MODULE_10__["StoreRouterConnectingModule"].forRoot()]]
@@ -122424,7 +122513,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     (function () {
       (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, {
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _ngrx_store__WEBPACK_IMPORTED_MODULE_4__["StoreRootModule"], _ngrx_store_devtools__WEBPACK_IMPORTED_MODULE_5__["StoreDevtoolsModule"], _ngrx_effects__WEBPACK_IMPORTED_MODULE_7__["EffectsRootModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_8__["SharedModule"], _ngrx_router_store__WEBPACK_IMPORTED_MODULE_10__["StoreRouterConnectingModule"]]
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"], _app_config_app_config_module__WEBPACK_IMPORTED_MODULE_11__["AppConfigModule"], _ngrx_store__WEBPACK_IMPORTED_MODULE_4__["StoreRootModule"], _ngrx_store_devtools__WEBPACK_IMPORTED_MODULE_5__["StoreDevtoolsModule"], _ngrx_effects__WEBPACK_IMPORTED_MODULE_7__["EffectsRootModule"], _shared_shared_module__WEBPACK_IMPORTED_MODULE_8__["SharedModule"], _ngrx_router_store__WEBPACK_IMPORTED_MODULE_10__["StoreRouterConnectingModule"]]
       });
     })();
     /***/
@@ -122648,7 +122737,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     });
 
     var environment = {
-      production: true
+      production: true,
+      apiEndpoint: 'https://my-json-server.typicode.com/vg1ne/ngrxAuth'
     };
     /***/
   },
