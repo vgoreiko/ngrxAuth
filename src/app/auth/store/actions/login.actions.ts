@@ -1,5 +1,5 @@
-import {createAction, props} from "@ngrx/store";
-import {UserDto} from "../../dto";
+import {createAction, props} from '@ngrx/store';
+import {UserDto} from '../../dto';
 
 export const login = createAction(
   '[Auth] LogIn',
@@ -15,4 +15,4 @@ export const loginError = createAction(
 );
 export const logout = createAction(
   '[Auth] Logout'
-)
+);

@@ -1,2 +1,2 @@
-export {ProfileFacadeService} from "./profile-facade.service";
+export {ProfileFacadeService} from './profile-facade.service';
 

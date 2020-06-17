@@ -1,9 +1,9 @@
-import {Injectable} from "@angular/core";
-import {Actions, createEffect, ofType} from "@ngrx/effects";
-import * as dictionaryActions from "../actions";
-import {catchError, map, switchMap} from "rxjs/operators";
-import {DictionaryRepositoryService} from "../../services";
-import {of} from "rxjs";
+import {Injectable} from '@angular/core';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
+import * as dictionaryActions from '../actions';
+import {catchError, map, switchMap} from 'rxjs/operators';
+import {DictionaryRepositoryService} from '../../services';
+import {of} from 'rxjs';
 
 @Injectable()
 export class CountryEffects {
@@ -13,7 +13,7 @@ export class CountryEffects {
     switchMap(_ => this.dictionaryRepositoryService.getCountries().pipe(
         map(countries => (dictionaryActions.loadCountriesSuccess({countries}))),
         catchError((e) => {
-          return of(dictionaryActions.loadCountriesError({error: e.error.message}))
+          return of(dictionaryActions.loadCountriesError({error: e.error.message}));
         })
       ))
     )

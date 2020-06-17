@@ -1,7 +1,7 @@
 import {Action, createReducer, on} from '@ngrx/store';
 import * as countryActions from '../actions';
-import {CountriesStateDto, initialCountriesState} from "../dictionary-state.dto";
-import {LoadingState} from "../../../shared/dto";
+import {CountriesStateDto, initialCountriesState} from '../dictionary-state.dto';
+import {LoadingState} from '../../../shared/dto';
 
 const reducer = createReducer(initialCountriesState,
   on(countryActions.loadCountries, state => ({
@@ -20,8 +20,8 @@ const reducer = createReducer(initialCountriesState,
     error: null,
     countries: action.countries
   })),
-)
+);
 
 export function countriesReducer(state: CountriesStateDto, action: Action) {
-  return reducer(state, action)
+  return reducer(state, action);
 }

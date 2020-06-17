@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {PrivacyPolicyComponent, TermsOfServicesComponent} from "./containers";
+import {PrivacyPolicyComponent, TermsOfServicesComponent} from './containers';
 
 
 const routes: Routes = [

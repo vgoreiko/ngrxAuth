@@ -1,4 +1,4 @@
-import {CountryDto, StateDto} from "../../dictionary/dto";
+import {CountryDto, StateDto} from '../../dictionary/dto';
 
 export interface UserAddressDto {
   address: string;

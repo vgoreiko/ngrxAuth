@@ -1,7 +1,7 @@
 import {Action, createReducer, on} from '@ngrx/store';
-import {LoadingState} from "../../dto";
+import {LoadingState} from '../../dto';
 import * as authActions from '../actions';
-import {loginInitialState, LoginState} from "../auth-state.dto";
+import {loginInitialState, LoginState} from '../auth-state.dto';
 
 const reducer = createReducer(loginInitialState,
   on(authActions.login, state => ({
@@ -23,8 +23,8 @@ const reducer = createReducer(loginInitialState,
   on(authActions.logout, authActions.reset, (state, action) => ({
     ...loginInitialState
   }))
-)
+);
 
 export function loginReducer(state: LoginState, action: Action) {
-  return reducer(state, action)
+  return reducer(state, action);
 }

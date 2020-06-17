@@ -1,5 +1,5 @@
-import {createAction, props} from "@ngrx/store";
-import {LoginDto, UserDto} from "../../dto";
+import {createAction, props} from '@ngrx/store';
+import {LoginDto, UserDto} from '../../dto';
 
 export const createAccount = createAction(
   '[Auth] Create Account',

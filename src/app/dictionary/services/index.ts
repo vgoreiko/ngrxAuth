@@ -1,1 +1,1 @@
-export {DictionaryRepositoryService} from "./dictionary-repository.service";
+export {DictionaryRepositoryService} from './dictionary-repository.service';

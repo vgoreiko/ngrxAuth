@@ -1,1 +1,1 @@
-export {LoadingState} from "./loading-state.enum";
+export {LoadingState} from './loading-state.enum';

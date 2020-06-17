@@ -1,5 +1,5 @@
-import {createAction, props} from "@ngrx/store";
-import {CountryDto} from "../../dto";
+import {createAction, props} from '@ngrx/store';
+import {CountryDto} from '../../dto';
 
 export const loadCountries = createAction(
   '[Dictionary] Load Countries'

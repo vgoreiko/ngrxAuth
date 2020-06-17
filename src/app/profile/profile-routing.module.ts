@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {SetupProfileComponent} from "./contrainers";
+import {SetupProfileComponent} from './contrainers';
 import {
   BioDetailsComponent,
   ProfileAddressComponent,
   ProfilePictureComponent,
   ProfileSecurityComponent
-} from "./components";
+} from './components';
 
 
 const routes: Routes = [{

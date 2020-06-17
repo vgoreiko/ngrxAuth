@@ -1,7 +1,7 @@
 import {Action, createReducer, on} from '@ngrx/store';
-import {LoadingState} from "../../dto";
+import {LoadingState} from '../../dto';
 import * as authActions from '../actions';
-import {createAccountInitialState, CreateAccountState} from "../auth-state.dto";
+import {createAccountInitialState, LoadingStateBase} from '../auth-state.dto';
 
 const reducer = createReducer(createAccountInitialState,
   on(authActions.createAccount, state => ({
@@ -19,8 +19,8 @@ const reducer = createReducer(createAccountInitialState,
     loading: LoadingState.Loaded,
     error: null
   }))
-)
+);
 
-export function createAccountReducer(state: CreateAccountState, action: Action) {
-  return reducer(state, action)
+export function createAccountReducer(state: LoadingStateBase, action: Action) {
+  return reducer(state, action);
 }

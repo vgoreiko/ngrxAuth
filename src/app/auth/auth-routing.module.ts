@@ -6,7 +6,7 @@ import {
   CreateAccountSuccessComponent,
   LogInComponent,
   RecoverPasswordComponent,
-} from "./containers";
+} from './containers';
 
 
 const routes: Routes = [{

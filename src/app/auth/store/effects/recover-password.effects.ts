@@ -1,11 +1,11 @@
-import {Injectable} from "@angular/core";
-import {catchError, delay, map, switchMap} from "rxjs/operators";
-import {of, pipe} from "rxjs";
-import {Actions, createEffect, ofType} from "@ngrx/effects";
-import * as authActions from "../actions";
+import {Injectable} from '@angular/core';
+import {catchError, delay, map, switchMap} from 'rxjs/operators';
+import {of, pipe} from 'rxjs';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
+import * as authActions from '../actions';
 
-import {AuthRepositoryService} from "../../services";
-import {Router} from "@angular/router";
+import {AuthRepositoryService} from '../../services';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class RecoverPasswordEffects {
@@ -15,7 +15,7 @@ export class RecoverPasswordEffects {
     switchMap(action => this.authRepositoryService.recoverPassword(action.userName).pipe(
         map(_ => (authActions.recoverPasswordSuccess())),
         catchError((e) => {
-          return of(authActions.recoverPasswordError({error: e.error.message}))
+          return of(authActions.recoverPasswordError({error: e.error.message}));
         })
       ))
     )

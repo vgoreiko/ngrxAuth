@@ -14,7 +14,6 @@ make the store as a source of truth for data.
 - Application Structure(Modules)
 - Well Organised Components - Smart and Dumb Components
 - Components having onPush ChangeDetection.
-
 6. Do not use any third party libraries.
 ___________________
 DEV

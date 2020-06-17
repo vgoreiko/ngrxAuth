@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
-import {StepDto} from "../../dto";
+import {StepDto} from '../../dto';
 
 @Component({
   selector: 'app-profile-stepper',
@@ -8,19 +8,19 @@ import {StepDto} from "../../dto";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProfileStepperComponent implements OnInit {
-  @Input() steps: StepDto[] = []
-  @Input() activeStepId: number
-  @Input() successStepIds: number[] = []
-  @Input() isNextDisabled: boolean = false
+  @Input() steps: StepDto[] = [];
+  @Input() activeStepId: number;
+  @Input() successStepIds: number[] = [];
+  @Input() isNextDisabled = false;
 
   ngOnInit(): void {
   }
 
   isStepSuccess(stepId: number) {
-    return this.successStepIds.includes(stepId)
+    return this.successStepIds.includes(stepId);
   }
 
   isStepActive(stepId: number) {
-    return this.activeStepId === stepId
+    return this.activeStepId === stepId;
   }
 }

@@ -1,1 +1,1 @@
-export * from "./countries.selector";
+export * from './countries.selector';

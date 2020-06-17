@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
-import {StoreModule} from "@ngrx/store";
-import {EffectsModule} from "@ngrx/effects";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
 
 import {AuthRoutingModule} from './auth-routing.module';
 import {
@@ -17,10 +17,10 @@ import {
   RecoverPasswordSuccessComponent,
   SuccessMessageComponent
 } from './components';
-import {AuthRepositoryService} from "./services";
-import * as fromReducers from "./store/reducers";
-import {CreateAccountEffects, GlobalEffects, LoginEffects, RecoverPasswordEffects} from "./store/effects";
-import {AuthSandboxService} from "./store/auth-sandbox.service";
+import {AuthRepositoryService} from './services';
+import * as fromReducers from './store/reducers';
+import {CreateAccountEffects, GlobalEffects, LoginEffects, RecoverPasswordEffects} from './store/effects';
+import {AuthSandboxService} from './store/auth-sandbox.service';
 
 @NgModule({
   declarations: [

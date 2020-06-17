@@ -1,7 +1,7 @@
 import {Action, createReducer, on} from '@ngrx/store';
-import {LoadingState} from "../../dto";
+import {LoadingState} from '../../dto';
 import * as authActions from '../actions';
-import {RecoverPasswordState, recoverPasswordInitialState, initialState} from "../auth-state.dto";
+import {LoadingStateBase, recoverPasswordInitialState, initialState} from '../auth-state.dto';
 
 const reducer = createReducer(recoverPasswordInitialState,
   on(authActions.recoverPassword, state => ({
@@ -22,8 +22,8 @@ const reducer = createReducer(recoverPasswordInitialState,
   on(authActions.logout, authActions.reset, (state, action) => ({
     ...recoverPasswordInitialState
   }))
-)
+);
 
-export function recoverPasswordReducer(state: RecoverPasswordState, action: Action) {
-  return reducer(state, action)
+export function recoverPasswordReducer(state: LoadingStateBase, action: Action) {
+  return reducer(state, action);
 }

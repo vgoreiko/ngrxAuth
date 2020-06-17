@@ -6,9 +6,9 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./loader.component.scss']
 })
 export class LoaderComponent {
-  @Input() loading: boolean = true
-  @Input() diameter: number = 50
+  @Input() loading = true;
+  @Input() diameter = 50;
 
-  spinnerClass = 'spinner-svg'
-  margin = -Math.round(this.diameter / 2)
+  spinnerClass = 'spinner-svg';
+  margin = -Math.round(this.diameter / 2);
 }

@@ -1,10 +1,10 @@
-import {Injectable} from "@angular/core";
-import {Actions, createEffect, ofType} from "@ngrx/effects";
-import * as authActions from "../actions";
-import {catchError, map, switchMap, tap} from "rxjs/operators";
-import {AuthRepositoryService} from "../../services";
-import {of} from "rxjs";
-import {Router} from "@angular/router";
+import {Injectable} from '@angular/core';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
+import * as authActions from '../actions';
+import {catchError, map, switchMap, tap} from 'rxjs/operators';
+import {AuthRepositoryService} from '../../services';
+import {of} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Injectable()
 export class CreateAccountEffects {
@@ -17,7 +17,7 @@ export class CreateAccountEffects {
     }).pipe(
         map(user => (authActions.createAccountSuccess({user}))),
         catchError((e) => {
-          return of(authActions.createAccountError({error: e.error.message}))
+          return of(authActions.createAccountError({error: e.error.message}));
         })
       ))
     )
@@ -25,7 +25,7 @@ export class CreateAccountEffects {
 
   createAccountSuccess$ = createEffect(() => this.actions$.pipe(
     ofType(authActions.createAccountSuccess),
-    tap(_ => this.router.navigate(["/auth/createSuccess"]))
+    tap(_ => this.router.navigate(['/auth/createSuccess']))
     ), {dispatch: false}
   );
 

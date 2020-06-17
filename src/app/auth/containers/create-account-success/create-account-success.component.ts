@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {AuthSandboxService} from "../../store/auth-sandbox.service";
-import {Router} from "@angular/router";
+import {AuthSandboxService} from '../../store/auth-sandbox.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-account-success',
@@ -16,10 +16,10 @@ export class CreateAccountSuccessComponent implements OnInit {
   }
 
   setupProfile() {
-    return this.router.navigate(["/setupProfile"])
+    return this.router.navigate(['/setupProfile']);
   }
 
   logout() {
-    this.authSandboxService.logout()
+    this.authSandboxService.logout();
   }
 }
