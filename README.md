@@ -1,4 +1,3 @@
-
 1. Create an MVP for https://xd.adobe.com/view/*****
 
 2. Use NGRX store to store data for each step and create nested structure wherever applicable.
@@ -17,5 +16,3 @@ make the store as a source of truth for data.
 - Components having onPush ChangeDetection.
 
 6. Do not use any third party libraries.
-________
-
