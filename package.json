@@ -5,8 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "lint": "ng lint",
-    "server": "npm run start:dev --prefix ./server"
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {

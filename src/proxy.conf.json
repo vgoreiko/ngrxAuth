@@ -1,6 +1,12 @@
 {
   "/api": {
-    "target": "http://localhost:3000",
-    "secure": false
-  }
+    "target": "https://my-json-server.typicode.com/vg1ne/ngrxAuth",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  },
+  "logLevel": "debug"
 }
+

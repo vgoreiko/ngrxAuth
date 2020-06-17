@@ -1,0 +1,11 @@
+<section class="block-m auth">
+  <h1 class="text-xl text-center mb-l">
+    Set Up Your Profile
+  </h1>
+  <app-profile-stepper [steps]="steps"
+                       [successStepIds]="successStepIds"
+                       [activeStepId]="activeStepId"
+                       [isNextDisabled]="isNextDisabled"
+  ></app-profile-stepper>
+  <router-outlet></router-outlet>
+</section>

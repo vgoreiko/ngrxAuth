@@ -1,0 +1,67 @@
+@import "../../../../styles/variables";
+
+:host {
+  display: flex;
+  flex-direction: column;
+
+  .steps-list {
+    padding: 0;
+    display: inline-flex;
+    justify-content: space-between;
+    list-style: none;
+
+    li {
+      display: flex;
+      flex-direction: column;
+
+      .bubble {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        display: flex;
+        justify-self: center;
+        align-self: center;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $disabled-color;
+        color: $disabled-color;
+      }
+
+      .sub-title{
+        justify-content: center;
+        align-items: center;
+        color: $disabled-color;
+      }
+
+      &.active {
+        .bubble {
+          color: $third-color;
+          border-color: $secondary-color;
+          background: $secondary-color;
+        }
+        .sub-title {
+          color: $secondary-color;
+        }
+      }
+
+      &.success {
+        .bubble {
+          color: $third-color;
+          border-color: $success-color;
+          background: $success-color;
+        }
+        .sub-title {
+          color: $primary-color;
+        }
+      }
+
+    }
+  }
+
+  .stepper-navigation {
+    button {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

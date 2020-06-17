@@ -21,7 +21,7 @@ export class AuthRepositoryService {
   }
 
   createAccount(credential: LoginDto) {
-    return this.http.post<UserDto>("/api/user", {userName: credential.userName, password: credential.password, email: `${credential.userName}@gmail.com`})
+    return this.http.post<UserDto>("/api/users", {userName: credential.userName, password: credential.password, email: `${credential.userName}@gmail.com`})
   }
 
   updateUserBioDetails(userBio: UserBioDto) {

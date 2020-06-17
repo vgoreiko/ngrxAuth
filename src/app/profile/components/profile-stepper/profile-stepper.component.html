@@ -1,0 +1,25 @@
+<ul class="steps-list">
+  <li *ngFor="let step of steps"
+      class="step"
+      [ngClass]="{'active': isStepActive(step.id), 'success': isStepSuccess(step.id)}"
+  >
+    <span class="bubble text-l mb-x" *ngIf="!isStepSuccess(step.id)">{{step.title}}</span>
+    <span class="bubble valid-icon success-text text-l mb-x" *ngIf="isStepSuccess(step.id)">&#10003;</span>
+
+    <span class="sub-title text-m">{{step.subTitle}}</span>
+  </li>
+</ul>
+
+<ng-content>
+
+</ng-content>
+
+<nav class="stepper-navigation">
+  <button class="btn btn-primary"
+          disabled="isNextDisabled"
+          type="button"
+          [ngClass]="{'btn-disabled': isNextDisabled}">
+    next
+  </button>
+</nav>
+
