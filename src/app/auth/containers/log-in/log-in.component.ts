@@ -36,4 +36,5 @@ export class LogInComponent {
   get isSignInDisabled() {
     return !(this.userNameControl.value && this.passwordControl.value)
   }
+
 }
