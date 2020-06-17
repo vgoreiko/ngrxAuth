@@ -30,5 +30,47 @@
   },
   "recover": {
     "OK": "OK"
-  }
+  },
+  "countries": [
+    {
+      "id": 1,
+      "name": "USA",
+      "states": [
+        {
+          "id": 1,
+          "name": "Florida"
+        },
+        {
+          "id": 2,
+          "name": "Alaska"
+        },
+        {
+          "id": 3,
+          "name": "Nevada"
+        },
+        {
+          "id": 4,
+          "name": "Arizona"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Ukraine",
+      "states": [
+        {
+          "id": 1,
+          "name": "Kyiv"
+        },
+        {
+          "id": 2,
+          "name": "Lviv"
+        },
+        {
+          "id": 3,
+          "name": "Odessa"
+        }
+      ]
+    }
+  ]
 }

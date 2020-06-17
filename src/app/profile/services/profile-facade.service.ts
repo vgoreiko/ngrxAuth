@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {StepDto} from "../dto";
+import {StepDto} from '../dto';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +29,7 @@ export class ProfileFacadeService {
         title: '4',
         subTitle: 'Security'
       }
-    ]
+    ];
   }
 
 }

@@ -10,15 +10,15 @@ export class AuthRepositoryService {
   }
 
   login(credential: LoginDto) {
-    return this.http.post<UserDto>(`${this.apiPredecessor}/auth/login`, credential);
+    return this.http.post<UserDto>(`${this.apiPredecessor}/login`, credential);
   }
 
   logout() {
-    return this.http.post(`${this.apiPredecessor}/auth/logout`, {});
+    return this.http.post(`${this.apiPredecessor}/logout`, {});
   }
 
   recoverPassword(userName: string) {
-    return this.http.post(`${this.apiPredecessor}/auth/recover`, {term: userName});
+    return this.http.post(`${this.apiPredecessor}/recover`, {term: userName});
   }
 
   createAccount(credential: LoginDto) {
